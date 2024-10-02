@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Pokedex by Bruno Moreno</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <h1 id="titulo">Pokedex by Bruno Moreno</h1>
+   
+    <!-- Campo de búsqueda -->
+    <div id="search-container">
+        <input type="text" id="search-Pokemon" placeholder="Buscar Pokémon por nombre..." >
+        <button id = "buscador" onclick="buscarPokemon()">Buscar</button>
+    </div>
+   
+
+    <!-- Contenedor para mostrar la lista de Pokemones -->
+    <div id="contenedor">
+        <div id="fav-container">
+            <button id = "mostrarFavs" onclick="mostrarFavPokemon()">Favoritos</button>
+        </div>
+        <div id="app">
+        </div>
+    </div>
+
+    <!-- Ventana donde se mostraran los detalles de los pokemon-->
+    <section id= "modal" >
+        <div id="modal_detalles"></div>
+    </section>
+
+    <script src="api.js"></script>
+
+</body>
+
+</html>

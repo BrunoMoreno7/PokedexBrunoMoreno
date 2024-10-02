@@ -1,0 +1,253 @@
+/* General body styles */
+body {
+    cursor: url(https://cdn.custom-cursor.com/db/10752/32/pokemon-rotom-and-rotom-dex-cursor.png), auto;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(to right, #F6EB61, #F5A623, #A65E2E);
+    margin: 0;
+    padding: 15px 10%;
+    overflow-x: hidden; /* Evitar el desbordamiento horizontal */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px; /* Ancho de la barra de desplazamiento */
+}
+::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 123, 255, 0.7); /* Color del "thumb" de la barra */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Title styles */
+#titulo {
+    text-align: center;
+    color: black;
+    font-size: 2em; /* Tamaño de fuente más grande */
+    margin-bottom: 20px; /* Espacio inferior */
+}
+
+/* Modal styles */
+#modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semi-transparente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s ease; /* Transición suave para la apertura del modal */
+}
+
+#modal_detalles {
+    background-color: #fff;
+    padding: 30px; /* Aumentar el padding */
+    border-radius: 15px; /* Bordes más redondeados */
+    max-width: 90%; /* Se adapta al ancho de la pantalla */
+    width: auto; /* El ancho se ajusta según el contenido */
+    max-height: 90vh; /* El modal nunca ocupará más del 90% de la altura de la pantalla */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2); /* Sombra más pronunciada */
+}
+
+#modal.modal--show {
+    opacity: 1;
+    pointer-events: unset;
+}
+
+/* Search container styles */
+#search-container {
+    display: flex;
+    flex-direction: row;
+    gap: 1em;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+#search-Pokemon, #buscador {
+    height: 40px; /* Ajustar a la misma altura */
+    padding: 10px; /* Asegurarse de que ambos tengan el mismo padding */
+    border-radius: 100px; 
+    font-size: 16px; /* Asegúrate de que el tamaño de la fuente sea igual */
+}
+
+#search-Pokemon {
+    width: 60%;
+}
+
+#buscador {
+    width: 15%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.2s;
+}
+#buscador:hover {
+    background-color: white;
+    color: #007bff; /* Texto azul en hover */
+    border: 2px solid #007bff; /* Bordes azules en hover */
+    transform: translateY(-2px); /* Efecto de levantamiento al pasar el mouse */
+}
+
+/* Favoritos container styles */
+#fav-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap; 
+    gap: 10px;
+}
+
+#fav-container button {
+    height: 40px; /* Coincide con el botón de búsqueda */
+    padding: 10px 10px; /* Ajustar el padding para que no se vea tan grande */
+    border-radius: 100px;
+    background-color: #007bff; /* Color azul */
+    color: white; /* Texto blanco */
+    border: none; /* Sin borde */
+    cursor: url(https://cdn.custom-cursor.com/db/10751/32/pokemon-rotom-and-rotom-dex-pointer.png), default;
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+    font-size: 14px; /* Disminuir el tamaño de la fuente si es necesario */
+}
+
+#fav-container button:hover {
+    background-color: white; /* Fondo blanco al pasar el mouse */
+    color: #007bff; /* Texto azul */
+    border: 2px solid #007bff; /* Bordes azules al pasar el mouse */
+    transform: translateY(-2px); /* Efecto de levantamiento al pasar el mouse */
+}
+
+#contenedor {
+    padding: 20px; 
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: linear-gradient(to right, #F6EB61, #F5A623, #A65E2E); /* mismo color de fondo */
+    border-radius: 10px; 
+}
+
+/* Pokémon list container styles */
+#app {
+    width: 100%;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 3 columnas, mínimo 200px cada una */
+    gap: 1em;
+    justify-items: center; /* Centra las cartas en cada celda */
+}
+
+/* diseño de las cartas */
+.perfilPokemon {
+    position: relative; /* Para que el botón se pueda posicionar dentro del contenedor */
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 15px; 
+    padding: 20px; 
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
+    max-width: 180px;
+}
+
+/* Posiciona el botón en la parte superior derecha */
+.perfilPokemon button.favorito-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px; 
+    background-color: transparent;
+    border: 2px solid red; 
+    border-radius: 50%;
+    font-size: 16px; 
+    text-align: center;
+    color: red; 
+    cursor: pointer;
+    padding: 5px; 
+    width: auto; 
+    height: auto;
+    white-space: nowrap; 
+    cursor: url(https://cdn.custom-cursor.com/db/10751/32/pokemon-rotom-and-rotom-dex-pointer.png), default;
+    transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease; 
+}
+.perfilPokemon button.favorito-btn:hover{
+    color: white;
+    background-color: red;
+    border-color: grey;
+    transform: translateY(-2px); /* Efecto de levantamiento al pasar el mouse */
+}
+.perfilPokemon button.favorito-btn.guardado {
+    text-align: center;
+    width: auto; 
+    height: auto; 
+    white-space: nowrap; 
+    color: red; 
+    cursor: url(https://cdn.custom-cursor.com/db/10751/32/pokemon-rotom-and-rotom-dex-pointer.png), default;
+    border-color: red; 
+    background-color: rgba(255, 0, 0, 0.1); 
+}
+.perfilPokemon button.favorito-btn.guardado:hover{
+    color: white;
+    background-color: red;
+    border-color: grey;
+    transform: translateY(-2px); /* Efecto de levantamiento al pasar el mouse */
+}
+/* Aumenta ligeramente el tamaño al pasar el mouse */
+.perfilPokemon:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+}
+
+/* Image styles */
+.perfilPokemon img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: 10px;
+    border-radius: 10px; /* Bordes redondeados para las imágenes */
+    transition: transform 0.2s; /* Transición suave al pasar el mouse */
+    margin-top: 30px; /* Ajustar para que el botón no cubra la imagen */
+}
+
+.perfilPokemon img:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen al pasar el mouse */
+}
+
+/* Heading styles */
+.perfilPokemon h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    text-transform: capitalize;
+}
+
+/* Button styles */
+button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: url(https://cdn.custom-cursor.com/db/10751/32/pokemon-rotom-and-rotom-dex-pointer.png), default;
+    margin-top: 10px;
+    width: 100%;
+    transition: background-color 0.3s, transform 0.2s; /* Transiciones suaves */
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px); /* Efecto de levantamiento al pasar el mouse */
+}
+
+/* Estilos específicos para el botón de mostrar info */
+#mostrarInfoPokemon{
+    background-color: #845e07;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: url(https://cdn.custom-cursor.com/db/10751/32/pokemon-rotom-and-rotom-dex-pointer.png), default;
+    margin-top: 10px;
+    width: 100%;
+}
